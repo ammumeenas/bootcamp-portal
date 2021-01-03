@@ -1,0 +1,129 @@
+<div class="card-body">
+  <form novalidate (ngSubmit)="saveJob()" [formGroup]="jobForm">
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="roleId">Role</label>
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="roleId"
+          type="text"
+          placeholder="Role"
+          formControlName="role"
+        />
+      </div>
+    </div>
+    <div>
+      <span *ngIf="jobForm.get('role')?.errors?.required"
+        >Please enter valid role</span
+      >
+    </div>
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="noOfOpeningsId"
+        >No of Openings</label
+      >
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="noOfOpeningsId"
+          type="text"
+          formControlName="noOfOpenings"
+        />
+      </div>
+      <div>
+        <span *ngIf="jobForm.get('noOfOpenings')?.errors?.required"
+          >Please enter valid number of openings</span
+        >
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="skillsId">Skills</label>
+      <div class="col=md-8">
+        <select
+          class="browser-default custom-select"
+          formControlName="skills"
+          id="skillsId"
+        >
+          <option value="1">Angular</option>
+          <option value="2">Java</option>
+          <option value="3">C#</option>
+        </select>
+      </div>
+      <div>
+        <span *ngIf="jobForm.get('skills')?.errors?.required"
+          >Please select a skill</span
+        >
+      </div>
+    </div>
+
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="experienceId"
+        >Years of Experience</label
+      >
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="experienceId"
+          type="number"
+          formControlName="yearsOfExperience"
+        />
+      </div>
+      <span *ngIf="jobForm.get('yearsOfExperience')?.errors?.required"
+        >Please enter valid experience</span
+      >
+    </div>
+
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="applicantsId"
+        >No of Applicants</label
+      >
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="applicantsId"
+          type="number"
+          formControlName="noOfApplicants"
+        />
+      </div>
+      <div>
+        <span *ngIf="jobForm.get('noOfApplicants')?.errors?.required"
+          >Please enter valid number of applicants</span
+        >
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="statusId"
+        >Status of Application</label
+      >
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="statusId"
+          type="text"
+          formControlName="applicationStatus"
+        />
+      </div>
+      <div>
+        <span *ngIf="jobForm.get('applicationStatus')?.errors?.required"
+          >Please enter valid application status</span
+        >
+      </div>
+    </div>
+
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="companyId">Company</label>
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="companyId"
+          type="text"
+          formControlName="company"
+        />
+      </div>
+      <span *ngIf="jobForm.get('company')?.errors?.required"
+        >Please enter valid company name</span
+      >
+    </div>
+
+    <button type="submit" [disabled]="!jobForm.valid">Save</button>
+  </form>
+</div>

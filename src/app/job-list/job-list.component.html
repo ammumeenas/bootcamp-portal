@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <th>Job Id</th>
+    <th>Role</th>
+    <th>No Of Openings</th>
+    <th>Skills</th>
+    <th>Job Experience</th>
+    <th>No Of Applicants</th>
+    <th>Status of Application</th>
+    <th>Company</th>
+  </tr>
+  <tr *ngFor="let job of jobs">
+    <td>{{ job.id }}</td>
+    <td>{{ job.role }}</td>
+    <td>{{ job.noOfOpenings }}</td>
+    <td>{{ job.skills }}</td>
+    <td>{{ job.yearsOfExperience }}</td>
+    <td>{{ job.noOfApplicants }}</td>
+    <td>{{ job.isActive }}</td>
+    <td>
+      <a [routerLink]="['/jobs', job.id]"> {{ job.Company }}</a>
+    </td>
+    <td>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        [routerLink]="['/jobs', job.id, 'edit']"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        (click)="deleteJob(job.id)"
+      >
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
