@@ -4,14 +4,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Job } from '../models/job.models';
 import { Observable } from 'rxjs';
 import { CATCH_ERROR_VAR } from '@angular/compiler/src/output/output_ast';
+import { Skill } from '../models/skill.models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Jobservice {
   constructor(private http: HttpClient) {}
+  headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  jobUrl: string = 'https://5f441fac3fb92f0016753411.mockapi.io/api/jobs';
+  jobUrl: string = 'https://localhost:5001/api/Job';
+  skillUrl: string = 'https://localhost:5001/api/Skill';
 
   getJobs() {
     return this.http.get<Job[]>(this.jobUrl);
@@ -22,20 +25,21 @@ export class Jobservice {
     return this.http.get<Job>(url);
   }
 
+  getSkills() {
+    return this.http.get<Skill[]>(this.skillUrl);
+  }
+
   updateJob(job: Job): Observable<Job> {
-    const headers = new HttpHeaders({ 'Content-Type': 'applications/json' });
     const editUrl = `${this.jobUrl}/${job.id}`;
-    return this.http.put<Job>(editUrl, job, { headers: headers });
+    return this.http.put<Job>(editUrl, job, { headers: this.headers });
   }
 
   createJob(job: Job): Observable<Job> {
-    const headers = new HttpHeaders({ 'Content-Type': 'applications/json' });
-    return this.http.post<Job>(this.jobUrl, job, { headers: headers });
+    return this.http.post<Job>(this.jobUrl, job, { headers: this.headers });
   }
 
   deleteJob(id: number) {
-    const headers = new HttpHeaders({ 'Content-Type': 'applications/json' });
     const deleteUrl = `${this.jobUrl}/${id}`;
-    return this.http.delete(deleteUrl, { headers: headers });
+    return this.http.delete(deleteUrl, { headers: this.headers });
   }
 }

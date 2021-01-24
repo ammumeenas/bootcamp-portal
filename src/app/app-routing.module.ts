@@ -7,7 +7,7 @@ import { JobListComponent } from './job-list/job-list.component';
 
 const routes: Routes = [
   {
-    path: 'jobs',
+    path: 'job',
     component: JobListComponent,
   },
   {
@@ -15,11 +15,11 @@ const routes: Routes = [
     component: JobFormComponent,
   },
   {
-    path: 'jobs/:id',
+    path: 'job/:id',
     component: JobDetailsComponent,
   },
   {
-    path: 'jobs/:id/edit',
+    path: 'job/:id/edit',
     component: JobEditComponent,
   },
 ];

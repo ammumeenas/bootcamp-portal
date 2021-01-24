@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JobFormComponent } from '../job-form/job-form.component';
 import { Job } from '../models/job.models';
+import { Skill } from '../models/skill.models';
 import { Jobservice } from './jobList.services';
 
 @Component({

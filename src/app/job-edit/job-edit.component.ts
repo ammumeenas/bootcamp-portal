@@ -65,7 +65,7 @@ export class JobEditComponent implements OnInit {
       yearsOfExperience: job.yearsOfExperience,
       noOfApplicants: job.noOfApplicants,
       applicationStatus: job.isActive,
-      company: job.Company,
+      company: job.company,
     });
   }
 

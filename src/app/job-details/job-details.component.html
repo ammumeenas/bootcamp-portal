@@ -20,8 +20,8 @@
     <td>
       {{ job.noOfOpenings }}
     </td>
-    <td>
-      {{ job.skills }}
+    <td *ngFor="let skill of job.skills">
+      {{ skill.name }}
     </td>
     <td>
       {{ job.yearsOfExperience }}
@@ -33,7 +33,7 @@
       {{ job.isActive }}
     </td>
     <td>
-      {{ job.Company }}
+      {{ job.company }}
     </td>
   </tr>
 </table>

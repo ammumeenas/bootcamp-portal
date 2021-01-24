@@ -13,17 +13,21 @@
     <td>{{ job.id }}</td>
     <td>{{ job.role }}</td>
     <td>{{ job.noOfOpenings }}</td>
-    <td>{{ job.skills }}</td>
+    <td>
+      <span *ngFor="let skill of job.skills; last as isLast"
+        >{{ skill.name }} <span *ngIf="!isLast">, </span></span
+      >
+    </td>
     <td>{{ job.yearsOfExperience }}</td>
     <td>{{ job.noOfApplicants }}</td>
     <td>{{ job.isActive }}</td>
     <td>
-      <a [routerLink]="['/jobs', job.id]"> {{ job.Company }}</a>
+      <a [routerLink]="['/job', job.id]"> {{ job.company }}</a>
     </td>
     <td>
       <button
         class="btn btn-outline-primary btn-sm"
-        [routerLink]="['/jobs', job.id, 'edit']"
+        [routerLink]="['/job', job.id, 'edit']"
       >
         Edit
       </button>

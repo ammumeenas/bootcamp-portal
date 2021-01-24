@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Jobservice } from '../job-list/jobList.services';
 import { Job } from '../models/job.models';
+import { Skill } from '../models/skill.models';
 
 @Component({
   selector: 'app-job-form',
@@ -10,6 +12,7 @@ import { Job } from '../models/job.models';
 })
 export class JobFormComponent implements OnInit {
   jobForm!: FormGroup;
+  skills!: Array<Skill>;
   constructor(
     private formBuilder: FormBuilder,
     private jobservice: Jobservice
@@ -25,6 +28,7 @@ export class JobFormComponent implements OnInit {
       applicationStatus: ['', Validators.required],
       company: ['', Validators.required],
     });
+    this.jobservice.getSkills().subscribe((skills) => (this.skills = skills));
   }
 
   saveJob(): void {
