@@ -9,14 +9,30 @@ import { JobFormComponent } from './job-form/job-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobEditComponent } from './job-edit/job-edit.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthButtonComponent } from './Auth/auth-button/auth-button.component';
+import { UserProfileComponent } from './Auth/auth-button/User-Profile.component';
 
 @NgModule({
-  declarations: [AppComponent, JobListComponent, JobFormComponent, JobDetailsComponent, JobEditComponent],
+  declarations: [
+    AppComponent,
+    JobListComponent,
+    JobFormComponent,
+    JobDetailsComponent,
+    JobEditComponent,
+    AuthButtonComponent,
+    UserProfileComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+
+    AuthModule.forRoot({
+      domain: 'dev-2frg9r3p.us.auth0.com',
+      clientId: 'HDZX3o5Afvoq9GMuIEa9btHUnQLUQwrU',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
