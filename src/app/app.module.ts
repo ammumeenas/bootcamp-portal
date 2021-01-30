@@ -32,6 +32,7 @@ import { UserProfileComponent } from './Auth/auth-button/User-Profile.component'
     AuthModule.forRoot({
       domain: 'dev-2frg9r3p.us.auth0.com',
       clientId: 'HDZX3o5Afvoq9GMuIEa9btHUnQLUQwrU',
+      audience: 'http://localhost:5000',
     }),
   ],
   providers: [],

@@ -10,4 +10,8 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class UserProfileComponent {
   constructor(public auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.auth.user$.subscribe((data) => console.log(data));
+  }
 }
