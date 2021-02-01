@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserService } from '../Auth/user/user.service';
 import { JobFormComponent } from '../job-form/job-form.component';
 import { Job } from '../models/job.models';
 import { Skill } from '../models/skill.models';
@@ -12,11 +13,16 @@ import { Jobservice } from './jobList.services';
 })
 export class JobListComponent implements OnInit {
   jobs!: Job[];
+  isAdmin!: boolean;
 
-  constructor(private jobService: Jobservice) {}
+  constructor(
+    private jobService: Jobservice,
+    public userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.jobService.getJobs().subscribe((data) => (this.jobs = data));
+    this.jobService.getJobs().subscribe((jobs) => (this.jobs = jobs));
+    this.userService.isAdmin().subscribe((isAdmin) => (this.isAdmin = isAdmin));
   }
 
   deleteJob(id: number) {
