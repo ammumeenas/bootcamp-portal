@@ -1,68 +1,30 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welcome to Bootcamp Job Portal</h1>
-  </div>
-</div>
-
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <ul class="nav nav-pills">
-    <li>
-      <a class="nav-link" routerLinkActive="active" routerLink="job"
-        >Job List</a
-      >
-    </li>
-    <li>
-      <a class="nav-link" routerLinkActive="active" routerLink="jobform"
-        >Create Job</a
-      >
-    </li>
-  </ul>
-  <app-auth-button></app-auth-button>
-  <app-user-profile></app-user-profile>
-</nav>
-
-<div>
-  <router-outlet></router-outlet>
-</div>
-
-<!-- <nav
-  class="navbar navbar-expand-lg navbar-dark bg-blue fixed-top"
-  role="navigation"
->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">About</a>
-    <button
-      class="navbar-toggler border-0"
-      type="button"
-      data-toggle="collapse"
-      data-target="#exCollapsingNavbar"
-    >
-      &#9776;
-    </button>
-    <div class="collapse navbar-collapse" id="exCollapsingNavbar">
-      <ul class="nav navbar-nav">
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-      </ul>
-      <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-        <li class="nav-item order-2 order-md-1">
-          <a href="#" class="nav-link" title="settings"
-            ><i class="fa fa-cog fa-fw fa-lg"></i
-          ></a>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <ul class="nav nav-pills">
+        <li>
+          <a class="btn btn-primary" routerLinkActive="active" routerLink="job"
+            >Job List</a
+          >
+        </li>
+        <li>
+          <a
+            class="btn btn-primary"
+            routerLinkActive="active"
+            routerLink="jobform"
+            >Create Job</a
+          >
         </li>
       </ul>
-      <li class="dropdown order-1">
-        <button
-          type="button"
-          id="dropdownMenu1"
-          data-toggle="dropdown"
-          class="btn btn-outline-secondary dropdown-toggle"
-        >
-          Login <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-right mt-2">
-          <li class="px-3 py-2"></li>
-        </ul>
-      </li>
-    </div>
+      <app-auth-button class="btn btn-primary"></app-auth-button>
+      <app-user-profile></app-user-profile>
+    </nav>
   </div>
-</nav> -->
+</nav>
+
+<div class="jumbotron">
+  <h1>Welcome to Bootcamp Job Portal</h1>
+</div>
+<div><img src="./assets/images/beach.jpg" class="bg" /></div>
+
+<div><router-outlet></router-outlet></div>
