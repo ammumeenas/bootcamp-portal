@@ -13,6 +13,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { AuthButtonComponent } from './Auth/auth-button/auth-button.component';
 import { UserProfileComponent } from './Auth/auth-button/User-Profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
       clientId: 'HDZX3o5Afvoq9GMuIEa9btHUnQLUQwrU',
       audience: 'http://localhost:5000',
     }),
+
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
