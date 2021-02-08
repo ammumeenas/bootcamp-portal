@@ -17,12 +17,11 @@ export class JobListComponent implements OnInit {
 
   constructor(
     private jobService: Jobservice,
-    private userService: UserService
+    public userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.jobService.getJobs().subscribe((jobs) => (this.jobs = jobs));
-    this.userService.isAdmin().subscribe((isAdmin) => (this.isAdmin = isAdmin));
   }
 
   deleteJob(id: number) {

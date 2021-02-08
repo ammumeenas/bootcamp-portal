@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
-import { map, mergeMap, switchMap } from 'rxjs/operators';
+import { map, mergeMap, switchMap, take } from 'rxjs/operators';
 import { Candidate } from '../models/candidate.model';
 
 @Injectable({
@@ -16,7 +16,8 @@ export class CandidateService {
 
   getCandidate(): Observable<Candidate> {
     return this.authService.user$.pipe(
-      switchMap((user) => {
+      take(1),
+      mergeMap((user) => {
         const url = `${this.candidateUrl}/${user.email}`;
         return this.http.get<Candidate>(url);
       })

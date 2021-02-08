@@ -16,6 +16,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
 import { CandidateEditFormComponent } from './candidate-Editform/candidate-Editform.component';
+import { UserService } from './Auth/user/user.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { CandidateEditFormComponent } from './candidate-Editform/candidate-Editf
 
     NgbModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

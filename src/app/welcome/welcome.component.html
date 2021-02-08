@@ -2,18 +2,13 @@
   <div class="container">
     <nav class="navbar navbar-expand navbar-light bg-light">
       <ul class="nav nav-pills">
-        <li>
-          <a
-            *ngIf="isAdmin"
-            class="btn btn-primary"
-            routerLinkActive="active"
-            routerLink="job"
+        <li *ngIf="userService.isAdmin">
+          <a class="btn btn-primary" routerLinkActive="active" routerLink="job"
             >Job List</a
           >
         </li>
         <li>
           <a
-            *ngIf="isAdmin"
             class="btn btn-primary"
             routerLinkActive="active"
             routerLink="jobform"
@@ -30,6 +25,7 @@
 <div class="jumbotron">
   <h1>Welcome to Bootcamp Job Portal</h1>
 </div>
+<a class="btn btn-primary" routerLink="candidate">Edit my profile</a>
 <!-- <div><img src="./assets/images/beach.jpg" class="bg" /></div> -->
 
 <div><router-outlet></router-outlet></div>

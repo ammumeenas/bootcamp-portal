@@ -13,15 +13,10 @@ import { CandidateService } from '../services/candidate.service';
 })
 export class CandidateProfileComponent {
   candidate!: Candidate;
-  isAdmin!: boolean;
   email!: string;
-  constructor(
-    private candidateService: CandidateService,
-    private userService: UserService
-  ) {}
+  constructor(private candidateService: CandidateService) {}
 
   ngOnInit(): void {
-    this.userService.isAdmin().subscribe((isAdmin) => (this.isAdmin = isAdmin));
     this.candidateService.getCandidate().subscribe((candidate) => {
       this.candidate = candidate;
     });

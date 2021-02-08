@@ -8,10 +8,7 @@ import { UserService } from '../Auth/user/user.service';
   styleUrls: ['./welcome.component.css'],
 })
 export class WelcomeComponent implements OnInit {
-  isAdmin!: boolean;
-  constructor(private userService: UserService) {}
+  constructor(public userService: UserService) {}
 
-  ngOnInit(): void {
-    this.userService.isAdmin().subscribe((data) => (this.isAdmin = data));
-  }
+  ngOnInit(): void {}
 }
