@@ -1,0 +1,38 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <td>
+      {{ candidate.id }}
+    </td>
+  </tr>
+
+  <tr>
+    <th>First Name</th>
+    <td>
+      {{ candidate.FName }}
+    </td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td>
+      {{ candidate.LName }}
+    </td>
+  </tr>
+  <tr>
+    <th>Experience</th>
+    <td>
+      {{ candidate.Experience }}
+    </td>
+  </tr>
+  <tr>
+    <th>Skills</th>
+
+    <td>
+      <span *ngFor="let skill of candidate.Skills; last as isLast"
+        >{{ skill.name }} <span *ngIf="!isLast">, </span></span
+      >
+
+      >
+    </td>
+  </tr>
+</table>

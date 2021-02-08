@@ -1,0 +1,74 @@
+<div class="card-body">
+  <form novalidate (ngSubmit)="saveCandidate()" [formGroup]="CandidateForm">
+    <label class="col-md-2 col-form -label" for="FNameId">First Name</label>
+    <div class="col=md-8">
+      <input
+        class="form-control"
+        id="FNameId"
+        type="text"
+        placeholder="First Name"
+        formControlName="FName"
+      />
+    </div>
+    <div>
+      <span *ngIf="CandidateForm.get('FName')?.errors?.required"
+        >Please enter valid First Name</span
+      >
+    </div>
+
+    <label class="col-md-2 col-form -label" for="LNameId">Last Name</label>
+    <div class="col=md-8">
+      <input
+        class="form-control"
+        id="LNameId"
+        type="text"
+        placeholder="Last Name"
+        formControlName="LName"
+      />
+    </div>
+    <div>
+      <span *ngIf="CandidateForm.get('LName')?.errors?.required"
+        >Please enter valid Last Name</span
+      >
+    </div>
+
+    <label class="col-md-2 col-form -label" for="Experienceid"
+      >Experience</label
+    >
+
+    <div class="col=md-8">
+      <input
+        class="form-control"
+        id="Experienceid"
+        type="text"
+        placeholder="Experience"
+        formControlName="Experience"
+      />
+    </div>
+    <div>
+      <span *ngIf="CandidateForm.get('Experience')?.errors?.required"
+        >Please enter valid Experience</span
+      >
+    </div>
+
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="skillsId">Skills</label>
+      <div class="col=md-8">
+        <select
+          class="browser-default custom-select"
+          formControlName="skills"
+          id="skillsId"
+        >
+          <option *ngFor="let skill of skills" value="{{ skill.id }}">
+            {{ skill.name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <span *ngIf="CandidateForm.get('skills')?.errors?.required"
+          >Please select a skill</span
+        >
+      </div>
+    </div>
+  </form>
+</div>

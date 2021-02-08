@@ -2,6 +2,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InterceptorService } from './Auth/interceptor.service';
+import { CandidateEditFormComponent } from './candidate-Editform/candidate-Editform.component';
+import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobEditComponent } from './job-edit/job-edit.component';
 import { JobFormComponent } from './job-form/job-form.component';
@@ -23,6 +25,14 @@ const routes: Routes = [
   {
     path: 'job/:id/edit',
     component: JobEditComponent,
+  },
+  {
+    path: 'candidate',
+    component: CandidateProfileComponent,
+  },
+  {
+    path: 'candidate/:id/edit',
+    component: CandidateEditFormComponent,
   },
 ];
 

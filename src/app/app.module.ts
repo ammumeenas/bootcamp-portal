@@ -14,6 +14,8 @@ import { AuthButtonComponent } from './Auth/auth-button/auth-button.component';
 import { UserProfileComponent } from './Auth/auth-button/User-Profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
+import { CandidateEditFormComponent } from './candidate-Editform/candidate-Editform.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AuthButtonComponent,
     UserProfileComponent,
     WelcomeComponent,
+    CandidateProfileComponent,
+    CandidateEditFormComponent,
   ],
   imports: [
     BrowserModule,

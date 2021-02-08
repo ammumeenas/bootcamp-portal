@@ -17,7 +17,7 @@ export class JobListComponent implements OnInit {
 
   constructor(
     private jobService: Jobservice,
-    public userService: UserService
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {

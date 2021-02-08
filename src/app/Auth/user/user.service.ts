@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,9 +12,8 @@ export class UserService {
   public isAdmin(): Observable<boolean> {
     return this.auth.user$.pipe(
       map((user) => {
-        console.log(user['http://portal/roles/role']);
+        console.log('user is', user);
         if (user['http://portal/roles/role'].includes('admin')) {
-          console.log('admin');
           return true;
         } else {
           console.log('not admin');
