@@ -1,25 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, shareReplay, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private auth: AuthService) {}
+  public isAdmin = false;
 
-  public isAdmin(): Observable<boolean> {
-    return this.auth.user$.pipe(
-      map((user) => {
-        console.log('user is', user);
-        if (user['http://portal/roles/role'].includes('admin')) {
-          return true;
-        } else {
-          console.log('not admin');
-          return false;
-        }
-      })
-    );
+  constructor(public auth: AuthService) {
+    const userSubscribtion = this.auth.user$.subscribe((user) => {
+      console.log('user:', user);
+      this.isAdmin = user['http://portal/roles/role'].includes('admin');
+      console.log('isAdmin:', this.isAdmin);
+      userSubscribtion.unsubscribe();
+    });
   }
 }

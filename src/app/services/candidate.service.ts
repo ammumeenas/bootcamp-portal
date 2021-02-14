@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
-import { map, mergeMap, switchMap, take } from 'rxjs/operators';
+import { mergeMap, take } from 'rxjs/operators';
 import { Candidate } from '../models/candidate.model';
 
 @Injectable({

@@ -13,7 +13,7 @@ import { CandidateService } from '../services/candidate.service';
 })
 export class CandidateProfileComponent {
   candidate!: Candidate;
-  email!: string;
+  email: string = '';
   constructor(private candidateService: CandidateService) {}
 
   ngOnInit(): void {

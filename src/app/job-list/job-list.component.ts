@@ -12,8 +12,8 @@ import { Jobservice } from './jobList.services';
   styleUrls: ['./job-list.component.css'],
 })
 export class JobListComponent implements OnInit {
-  jobs!: Job[];
-  isAdmin!: boolean;
+  jobs: Job[] = [];
+  isAdmin: boolean = false;
 
   constructor(
     private jobService: Jobservice,

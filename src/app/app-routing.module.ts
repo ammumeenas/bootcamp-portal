@@ -31,7 +31,7 @@ const routes: Routes = [
     component: CandidateProfileComponent,
   },
   {
-    path: 'candidate/:id/edit',
+    path: 'candidate/edit',
     component: CandidateEditFormComponent,
   },
 ];
