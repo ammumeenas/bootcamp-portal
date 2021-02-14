@@ -9,26 +9,26 @@
   <tr>
     <th>First Name</th>
     <td>
-      {{ candidate.FName }}
+      {{ candidate.fName }}
     </td>
   </tr>
   <tr>
     <th>Last Name</th>
     <td>
-      {{ candidate.LName }}
+      {{ candidate.lName }}
     </td>
   </tr>
   <tr>
     <th>Experience</th>
     <td>
-      {{ candidate.Experience }}
+      {{ candidate.experience }}
     </td>
   </tr>
   <tr>
     <th>Skills</th>
 
     <td>
-      <span *ngFor="let skill of candidate.Skills; last as isLast"
+      <span *ngFor="let skill of candidate.candidateSkills; last as isLast"
         >{{ skill.name }} <span *ngIf="!isLast">, </span></span
       >
 

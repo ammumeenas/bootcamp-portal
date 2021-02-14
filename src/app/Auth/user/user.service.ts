@@ -7,14 +7,16 @@ import { map, shareReplay, take } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserService {
-  public isAdmin = false;
+  public isAdmin!: boolean;
 
   constructor(public auth: AuthService) {
     const userSubscribtion = this.auth.user$.subscribe((user) => {
       console.log('user:', user);
-      this.isAdmin = user['http://portal/roles/role'].includes('admin');
-      console.log('isAdmin:', this.isAdmin);
-      userSubscribtion.unsubscribe();
+      if (user !== null) {
+        this.isAdmin = user['http://portal/roles/role'].includes('admin');
+        console.log('isAdmin:', this.isAdmin);
+        userSubscribtion.unsubscribe();
+      }
     });
   }
 }

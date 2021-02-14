@@ -52,10 +52,10 @@ export class CandidateEditFormComponent implements OnInit {
   displayCandidate(candidate: Candidate): void {
     this.candidate = candidate;
     this.CandidateForm.patchValue({
-      FName: candidate.FName,
-      LName: candidate.LName,
-      Experience: candidate.Experience,
-      Skills: candidate.Skills,
+      fName: candidate.fName,
+      lName: candidate.lName,
+      experience: candidate.experience,
+      candidateSkills: candidate.candidateSkills,
     });
   }
 

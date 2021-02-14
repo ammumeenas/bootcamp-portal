@@ -25,7 +25,7 @@
 <div class="jumbotron">
   <h1>Welcome to Bootcamp Job Portal</h1>
 </div>
-<div *ngIf="userService.isAdmin === true">
+<div *ngIf="userService.isAdmin === false">
   <a class="btn btn-primary" routerLink="/candidate">My Profile</a>
 
   <a class="btn btn-primary" routerLink="/candidate/edit">Edit my profile</a>
