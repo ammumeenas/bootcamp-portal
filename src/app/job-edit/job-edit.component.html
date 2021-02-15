@@ -35,13 +35,16 @@
         >
       </div>
     </div>
-    hi
-    <div *ngFor="let skill of job.skills" class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="{{ skill.id }}"
-        >Skills</label
-      >
-      <div class="col=md-8">
-        <input type="text" formControlName="skill.name" id="{{ skill.id }}" />
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="skillId">Skills</label>
+      <div class="col=md-8" *ngFor="let skill of job.skills">
+        <label>{{ skill.name }}</label>
+        <input
+          type="checkbox"
+          value=" skill.id"
+          formControlName="skill.name"
+          id="{{ skill.id }}"
+        />
       </div>
       <div>
         <span *ngIf="jobForm.get('skills')?.errors?.required"

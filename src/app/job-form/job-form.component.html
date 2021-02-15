@@ -34,23 +34,25 @@
       </div>
     </div>
     <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="skillsId">Skills</label>
-      <div class="col=md-8">
-        <select
-          class="browser-default custom-select"
-          formControlName="skills"
-          id="skillsId"
-        >
-          <option *ngFor="let skill of skills" value="{{ skill.id }}">
-            {{ skill.name }}
-          </option>
-        </select>
+      <label class="col-md-2 col-form -label" for="skillId"
+        >Please select a skill</label
+      >
+      <div class="col=md-8" *ngFor="let skill of skills">
+        <label [for]="skill.id">{{ skill.name }}</label>
+        <input
+          type="checkbox"
+          (change)="onCheckboxSelected($event)"
+          [id]="skill.id"
+          [value]="skill.id"
+        />
       </div>
-      <div>
-        <span *ngIf="jobForm.get('skills')?.errors?.required"
-          >Please select a skill</span
-        >
-      </div>
+      <span
+        *ngIf="
+          jobForm.get('skills')?.errors?.required &&
+          !jobForm.get('skills')?.pristine
+        "
+        >Choose atleast one skill</span
+      >
     </div>
 
     <div class="form-group row mb-2">

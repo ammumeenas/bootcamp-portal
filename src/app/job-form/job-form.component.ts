@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Jobservice } from '../job-list/jobList.services';
 import { Job } from '../models/job.models';
@@ -13,6 +19,7 @@ import { Skill } from '../models/skill.models';
 export class JobFormComponent implements OnInit {
   jobForm!: FormGroup;
   skills!: Array<Skill>;
+  selectedSkills: Array<Number> = [];
   constructor(
     private formBuilder: FormBuilder,
     private jobservice: Jobservice
@@ -22,7 +29,6 @@ export class JobFormComponent implements OnInit {
     this.jobForm = this.formBuilder.group({
       role: ['', Validators.required],
       noOfOpenings: [null, Validators.required],
-      skills: ['', Validators.required],
       yearsOfExperience: ['', Validators.required],
       noOfApplicants: ['', Validators.required],
       applicationStatus: ['', Validators.required],
@@ -34,7 +40,11 @@ export class JobFormComponent implements OnInit {
   saveJob(): void {
     if (this.jobForm.dirty) {
       if (this.jobForm.valid) {
-        const job = this.jobForm.value;
+        const job = {
+          ...this.jobForm.value,
+          skills: this.selectedSkills,
+        };
+        console.log('job is:', job);
         this.jobservice.createJob(job).subscribe({
           next: () => this.saveOnComplete(),
         });
@@ -43,5 +53,18 @@ export class JobFormComponent implements OnInit {
   }
   saveOnComplete() {
     this.jobForm.reset();
+  }
+
+  onCheckboxSelected(event: any) {
+    /* Selected */
+    if (event.target.checked) {
+      this.selectedSkills.push(event.target.value);
+    } else {
+      /* unselected */
+      const index = this.selectedSkills.indexOf(event.target.value, 0);
+      if (index > -1) {
+        this.selectedSkills.splice(index, 1);
+      }
+    }
   }
 }

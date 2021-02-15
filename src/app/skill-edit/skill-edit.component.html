@@ -1,0 +1,42 @@
+<div class="card-body">
+  <form novalidate (ngSubmit)="saveSkill()" [formGroup]="skillForm">
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="NameId">Name</label>
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="NameId"
+          type="text"
+          placeholder="Role"
+          formControlName="Name"
+        />
+      </div>
+    </div>
+    <div>
+      <span *ngIf="skillForm.get('Name')?.errors?.required"
+        >Please enter valid name</span
+      >
+    </div>
+
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form -label" for="DescriptionId"
+        >Description</label
+      >
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="DescriptionId"
+          type="text"
+          placeholder="Description"
+          formControlName="Description"
+        />
+      </div>
+    </div>
+    <div>
+      <span *ngIf="skillForm.get('Description')?.errors?.required"
+        >Please enter valid Description</span
+      >
+    </div>
+    <button type="submit" [disabled]="!skillForm.valid">Save</button>
+  </form>
+</div>

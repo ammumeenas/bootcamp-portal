@@ -24,6 +24,12 @@ export class CandidateService {
     );
   }
 
+  createCandidate(candidate: Candidate): Observable<Candidate> {
+    return this.http.post<Candidate>(this.candidateUrl, candidate, {
+      headers: this.headers,
+    });
+  }
+
   updateCandidate(candidate: Candidate): Observable<Candidate> {
     const editUrl = `${this.candidateUrl}/${candidate.id}`;
     return this.http.put<Candidate>(editUrl, candidate, {

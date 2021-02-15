@@ -17,6 +17,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
 import { CandidateEditFormComponent } from './candidate-Editform/candidate-Editform.component';
 import { UserService } from './Auth/user/user.service';
+import { SkillFormComponent } from './skill-form/skill-form.component';
+import { SkillEditComponent } from './skill-edit/skill-edit.component';
+import { CandidateCreateProfileComponent } from './candidate-create-profile/candidate-create-profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { UserService } from './Auth/user/user.service';
     WelcomeComponent,
     CandidateProfileComponent,
     CandidateEditFormComponent,
+    SkillFormComponent,
+    SkillEditComponent,
+    CandidateCreateProfileComponent,
   ],
   imports: [
     BrowserModule,

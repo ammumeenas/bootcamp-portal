@@ -1,0 +1,68 @@
+<!-- <div class="card-body">
+  <form (ngSubmit)="saveSkills()" [formGroup]="skillForm">
+    <label class="col-md-2 col-form -label" for="nameId">Name</label>
+    <div class="col=md-8">
+      <input
+        class="form-control"
+        id="nameId"
+        type="text"
+        placeholder="Name"
+        formControlName="Name"
+      />
+    </div>
+    <div>
+      <span *ngIf="skillForm.get('Name')?.errors?.required"
+        >Please enter valid name</span
+      >
+      <div>
+        <label class="col-md-2 col-form -label" for="descriptionId"
+          >Description</label
+        >
+      </div>
+      <div class="col=md-8">
+        <input
+          class="form-control"
+          id="descriptionId"
+          type="text"
+          placeholder="Description"
+          formControlName="Description"
+        />
+      </div>
+      <div>
+        <span *ngIf="skillForm.get('Description')?.errors?.required"
+          >Please enter valid Description</span
+        >
+      </div>
+    </div>
+  </form>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Job Id</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let skill of skills">
+    <td>{{ skill.id }}</td>
+    <td>{{ skill.Name }}</td>
+    <td>{{ skill.Description }}</td>
+
+    <td>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        [routerLink]="['/skill', skill.id, 'edit']"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        (click)="deleteSkill(skill.id)"
+      >
+        Delete
+      </button>
+    </td>
+  </tr>
+</table> -->
