@@ -52,20 +52,23 @@
     </div>
 
     <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="skillId"
-        >Please select a skill</label
-      >
+      <label class="col-md-2 col-form -label" for="skillId">Skills</label>
       <div class="col=md-8" *ngFor="let skill of skills">
-        <label [for]="skill.id">{{ skill.name }}</label>
-        <input type="checkbox" [id]="skill.id" [value]="skill.id" />
+        <label>{{ skill.name }}</label>
+        <input
+          type="checkbox"
+          [checked]="doesCandidateHaveSkill(skill)"
+          (change)="onCheckboxSelected($event)"
+          [id]="skill.id"
+          [value]="skill.id"
+        />
       </div>
-      <span
-        *ngIf="
-          CandidateForm.get('skills')?.errors?.required &&
-          CandidateForm.get('skills')?.pristine
-        "
-        >Choose atleast one skill</span
+    </div>
+    <div>
+      <span *ngIf="CandidateForm.get('skills')?.errors?.required"
+        >Please select a skill</span
       >
     </div>
+    <button type="submit" [disabled]="!CandidateForm.valid">Save</button>
   </form>
 </div>

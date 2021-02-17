@@ -15,8 +15,9 @@ export class CandidateEditFormComponent implements OnInit {
   candidate!: Candidate;
   CandidateForm!: FormGroup;
   error: string = '';
-  skills!: Array<Skill>;
+  skills: Array<Skill> = [];
   selectedCandidate!: Array<Skill>;
+  selectedSkills: Array<Number> = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class CandidateEditFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.jobService.getSkills().subscribe((skills) => (this.skills = skills));
+    this.getCandidate();
     this.CandidateForm = this.formBuilder.group({
       fName: ['', Validators.required],
       lName: ['', Validators.required],
@@ -35,16 +37,26 @@ export class CandidateEditFormComponent implements OnInit {
     });
   }
   getCandidate(): void {
-    this.candidateService.getCandidate().subscribe({
-      next: (candidate: Candidate) => this.displayCandidate(candidate),
-      error: (err) => (this.error = err),
-    });
+    this.candidateService.getCandidate().subscribe(
+      (candidate: Candidate) => {
+        this.displayCandidate(candidate);
+        candidate.skills.forEach((element) => {
+          this.selectedSkills.push(element.id);
+        });
+      },
+
+      (err) => (this.error = err)
+    );
   }
 
   saveCandidate(): void {
     if (this.CandidateForm.dirty) {
       if (this.CandidateForm.valid) {
-        const candidate = this.CandidateForm.value;
+        const candidate = {
+          ...this.CandidateForm.value,
+          skills: this.selectedSkills,
+          id: this.candidate.id,
+        };
         this.candidateService.updateCandidate(candidate).subscribe({
           next: () => this.saveOnComplete(),
           error: (err) => (this.error = err),
@@ -55,7 +67,6 @@ export class CandidateEditFormComponent implements OnInit {
 
   displayCandidate(candidate: Candidate): void {
     this.candidate = candidate;
-    this.selectedCandidate = this.candidate.skills;
     this.CandidateForm.patchValue({
       fName: candidate.fName,
       lName: candidate.lName,
@@ -66,5 +77,20 @@ export class CandidateEditFormComponent implements OnInit {
 
   saveOnComplete(): void {
     this.CandidateForm.reset();
+  }
+
+  doesCandidateHaveSkill(skill: Skill) {
+    return this.candidate.skills.some((s) => s.id === skill.id);
+  }
+
+  onCheckboxSelected(event: any) {
+    if (event.target.value.checked) {
+      this.selectedSkills.push(+event.target.value);
+    } else {
+      const index = this.selectedSkills.indexOf(+event.target.value);
+      if (index > -1) {
+        this.selectedSkills.splice(index, 1);
+      }
+    }
   }
 }
