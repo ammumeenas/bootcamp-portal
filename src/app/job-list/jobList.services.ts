@@ -39,6 +39,7 @@ export class Jobservice {
     const editUrl = `${this.jobUrl}/${job.id}`;
     return this.http.put<Job>(editUrl, job, { headers: this.headers });
   }
+
   updateSkill(skill: Skill): Observable<Skill> {
     const editUrl = `${this.skillUrl}/${skill.id}`;
     return this.http.put<Skill>(editUrl, skill, { headers: this.headers });

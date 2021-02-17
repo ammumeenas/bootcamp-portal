@@ -28,10 +28,8 @@
     <th>Skills</th>
 
     <td>
-      <span *ngFor="let skill of candidate.candidateSkills; last as isLast"
+      <span *ngFor="let skill of candidate.skills; last as isLast"
         >{{ skill.name }} <span *ngIf="!isLast">, </span></span
-      >
-
       >
     </td>
   </tr>

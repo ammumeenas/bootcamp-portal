@@ -6,6 +6,6 @@ export interface Candidate {
   experience: Number;
   fName: string;
   lName: string;
-  candidateSkills: Array<Skill>;
+  skills: Array<Skill>;
   candidateJobs: Array<Job>;
 }
