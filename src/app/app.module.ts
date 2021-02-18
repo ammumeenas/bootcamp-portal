@@ -20,6 +20,7 @@ import { UserService } from './Auth/user/user.service';
 import { SkillFormComponent } from './skill-form/skill-form.component';
 import { SkillEditComponent } from './skill-edit/skill-edit.component';
 import { CandidateCreateProfileComponent } from './candidate-create-profile/candidate-create-profile.component';
+import { CandidateViewComponent } from './candidate-view/candidate-view.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CandidateCreateProfileComponent } from './candidate-create-profile/cand
     SkillFormComponent,
     SkillEditComponent,
     CandidateCreateProfileComponent,
+    CandidateViewComponent,
   ],
   imports: [
     BrowserModule,

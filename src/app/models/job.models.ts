@@ -8,6 +8,6 @@ export interface Job {
   jobLocation: string;
   yearsOfExperience: number;
   noOfApplicants: number;
-  isActive: boolean;
+  isActive: string;
   company: string;
 }

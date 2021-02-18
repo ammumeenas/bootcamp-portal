@@ -1,4 +1,4 @@
-<table class="table table-striped" *ngIf="userService.isAdmin">
+<table class="table table-striped">
   <tr>
     <th>Job Id</th>
     <th>Role</th>
@@ -6,7 +6,7 @@
     <th>Skills</th>
     <th>Job Experience</th>
     <th>No Of Applicants</th>
-    <th>Status of Application</th>
+    <th *ngIf="!userService.isAdmin">Status of Application</th>
     <th>Company</th>
   </tr>
   <tr *ngFor="let job of jobs">
@@ -26,6 +26,7 @@
     </td>
     <td>
       <button
+        *ngIf="isAdmin"
         class="btn btn-outline-primary btn-sm"
         [routerLink]="['/job', job.id, 'edit']"
       >
@@ -34,10 +35,18 @@
     </td>
     <td>
       <button
+        *ngIf="isAdmin"
         class="btn btn-outline-primary btn-sm"
         (click)="deleteJob(job.id)"
       >
         Delete
+      </button>
+      <button
+        *ngIf="!isAdmin"
+        class="btn btn-outline-primary btn-sm"
+        (click)="applyForThisJob(job.id)"
+      >
+        {{ IsJobApplied }}
       </button>
     </td>
   </tr>

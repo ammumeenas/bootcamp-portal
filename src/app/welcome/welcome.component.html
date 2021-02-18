@@ -37,7 +37,12 @@
   <a class="btn btn-primary" routerLink="/candidate">My Profile</a>
 
   <a class="btn btn-primary" routerLink="/candidate/edit">Edit my profile</a>
-  <a class="btn btn-primary" routerLink="profile">Create profile</a>
+  <a *ngIf="!candidateProfile" class="btn-primary" routerLink="profile"
+    >Create profile</a
+  >
+  <a class="btn btn-primary" routerLinkActive="active" routerLink="job"
+    >Job List</a
+  >
 </div>
 <!-- <div><img src="./assets/images/beach.jpg" class="bg" /></div> -->
 
