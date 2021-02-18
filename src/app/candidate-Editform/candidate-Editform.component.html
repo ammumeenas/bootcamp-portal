@@ -11,7 +11,7 @@
       />
     </div>
     <div>
-      <span *ngIf="CandidateForm.get('FName')?.errors?.required"
+      <span *ngIf="CandidateForm.get('fName')?.errors?.required"
         >Please enter valid First Name</span
       >
     </div>
@@ -23,11 +23,11 @@
         id="lNameId"
         type="text"
         placeholder="Last Name"
-        formControlName="LName"
+        formControlName="lName"
       />
     </div>
     <div>
-      <span *ngIf="CandidateForm.get('LName')?.errors?.required"
+      <span *ngIf="CandidateForm.get('lName')?.errors?.required"
         >Please enter valid Last Name</span
       >
     </div>
@@ -46,7 +46,7 @@
       />
     </div>
     <div>
-      <span *ngIf="CandidateForm.get('Experience')?.errors?.required"
+      <span *ngIf="CandidateForm.get('experience')?.errors?.required"
         >Please enter valid Experience</span
       >
     </div>

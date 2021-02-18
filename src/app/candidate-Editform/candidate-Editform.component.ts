@@ -32,7 +32,7 @@ export class CandidateEditFormComponent implements OnInit {
     this.CandidateForm = this.formBuilder.group({
       fName: ['', Validators.required],
       lName: ['', Validators.required],
-      Experience: [null, Validators.required],
+      experience: [null, Validators.required],
       skills: ['', Validators.required],
     });
   }
