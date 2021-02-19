@@ -30,7 +30,6 @@ export class JobFormComponent implements OnInit {
       role: ['', Validators.required],
       noOfOpenings: [null, Validators.required],
       yearsOfExperience: ['', Validators.required],
-      noOfApplicants: ['', Validators.required],
       applicationStatus: ['', Validators.required],
       company: ['', Validators.required],
     });

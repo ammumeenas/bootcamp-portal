@@ -1,3 +1,5 @@
+import { Candidate } from './candidate.model';
+import { CandidateJob } from './candidateJob.models';
 import { Skill } from './skill.models';
 
 export interface Job {
@@ -10,4 +12,5 @@ export interface Job {
   noOfApplicants: number;
   isActive: string;
   company: string;
+  candidates: Array<Candidate>;
 }

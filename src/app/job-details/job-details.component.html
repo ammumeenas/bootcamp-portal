@@ -2,10 +2,8 @@
   <tr>
     <th>Job Id</th>
     <th>Role</th>
-    <th>No Of Openings</th>
     <th>Skills</th>
     <th>Job Experience</th>
-    <th>No Of Applicants</th>
     <th>Status of Application</th>
     <th>Company</th>
   </tr>
@@ -17,17 +15,11 @@
     <td>
       {{ job.role }}
     </td>
-    <td>
-      {{ job.noOfOpenings }}
-    </td>
     <td *ngFor="let skill of job.skills">
       {{ skill.name }}
     </td>
     <td>
       {{ job.yearsOfExperience }}
-    </td>
-    <td>
-      {{ job.noOfApplicants }}
     </td>
     <td>
       {{ job.isActive }}

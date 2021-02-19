@@ -27,21 +27,17 @@ export class JobListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.jobService.getJobs().subscribe((jobs) => (this.jobs = jobs));
+    this.jobService.getJobs().subscribe((jobs) => {
+      this.jobs = jobs;
+      console.log('candidates', jobs.length);
+    });
+
     this.candidateService.getCandidate().subscribe((candidate) => {
       (this.candidate = candidate),
         candidate.jobs.forEach((job) => {
           this.selectedJobsIdForCandidates.push(job.id);
         });
     });
-
-    // this.candidate.candidateJobs.forEach((job) => {
-    //   if (this.jobs.includes(job)) {
-    //     this.IsJobApplied = 'Applied';
-    //   } else {
-    //     this.IsJobApplied = 'Apply';
-    //   }
-    // });
   }
 
   deleteJob(id: number) {
@@ -52,12 +48,12 @@ export class JobListComponent implements OnInit {
       }
     });
   }
+
   applyJob(jobId: number) {
     const candidateJob: CandidateJob = {
       jobId: jobId,
       candidateId: this.candidate.id,
     };
-    console.log('inside applied job');
     this.candidateService.createCandidateJob(candidateJob).subscribe((cj) => {
       this.selectedJobsIdForCandidates.push(cj.jobId);
     });

@@ -2,25 +2,27 @@
   <tr>
     <th>Job Id</th>
     <th>Role</th>
-    <th>No Of Openings</th>
+    <th *ngIf="userService.isAdmin === true">No Of Applicants</th>
+    <th>Status of Application</th>
     <th>Skills</th>
     <th>Job Experience</th>
-    <th *ngIf="userService.isAdmin === true">No Of Applicants</th>
-    <th *ngIf="!userService.isAdmin">Status of Application</th>
     <th>Company</th>
   </tr>
   <tr *ngFor="let job of jobs">
     <td>{{ job.id }}</td>
     <td>{{ job.role }}</td>
-    <td>{{ job.noOfOpenings }}</td>
+    <td *ngIf="userService.isAdmin === true">
+      {{ job.candidates.length }}
+    </td>
+    <td>
+      {{ job.isActive }}
+    </td>
     <td>
       <span *ngFor="let skill of job.skills; last as isLast"
         >{{ skill.name }} <span *ngIf="!isLast">, </span></span
       >
     </td>
     <td>{{ job.yearsOfExperience }}</td>
-    <td *ngIf="userService.isAdmin === true">{{ job.noOfApplicants }}</td>
-    <td>{{ job.isActive }}</td>
     <td>
       <a [routerLink]="['/job', job.id]"> {{ job.company }}</a>
     </td>

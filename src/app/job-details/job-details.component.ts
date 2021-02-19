@@ -23,9 +23,8 @@ export class JobDetailsComponent implements OnInit {
     }
   }
   getJob(id: number): void {
-    this.jobservice.getJob(id).subscribe({
-      next: (job) => (this.job = job),
-      error: (err) => (this.errormessage = err),
+    this.jobservice.getJob(id).subscribe((job) => {
+      (this.job = job), (this.job.noOfApplicants = job.Candidates.length);
     });
   }
 }
