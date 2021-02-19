@@ -12,29 +12,7 @@
         />
       </div>
     </div>
-    <div>
-      <span *ngIf="jobForm.get('role')?.errors?.required"
-        >Please enter valid role</span
-      >
-    </div>
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="noOfOpeningsId"
-        >No of Openings</label
-      >
-      <div class="col=md-8">
-        <input
-          class="form-control"
-          id="noOfOpeningsId"
-          type="text"
-          formControlName="noOfOpenings"
-        />
-      </div>
-      <div>
-        <span *ngIf="jobForm.get('noOfOpenings')?.errors?.required"
-          >Please enter valid number of openings</span
-        >
-      </div>
-    </div>
+
     <div class="form-group row mb-2">
       <label class="col-md-2 col-form -label" for="skillId">Skills</label>
       <div class="col=md-8" *ngFor="let skill of skills">
@@ -71,24 +49,6 @@
       >
     </div>
 
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="applicantsId"
-        >No of Applicants</label
-      >
-      <div class="col=md-8">
-        <input
-          class="form-control"
-          id="applicantsId"
-          type="number"
-          formControlName="noOfApplicants"
-        />
-      </div>
-      <div>
-        <span *ngIf="jobForm.get('noOfApplicants')?.errors?.required"
-          >Please enter valid number of applicants</span
-        >
-      </div>
-    </div>
     <div class="form-group row mb-2">
       <label class="col-md-2 col-form -label" for="statusId"
         >Status of Application</label

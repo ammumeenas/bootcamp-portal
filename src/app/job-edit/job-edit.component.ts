@@ -29,7 +29,6 @@ export class JobEditComponent implements OnInit {
       noOfOpenings: [null, Validators.required],
       skills: ['', Validators.required],
       yearsOfExperience: ['', Validators.required],
-      noOfApplicants: ['', Validators.required],
       applicationStatus: ['', Validators.required],
       company: ['', Validators.required],
     });
