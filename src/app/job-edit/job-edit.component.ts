@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Jobservice } from '../job-list/jobList.services';
 import { Job } from '../models/job.models';
 import { Skill } from '../models/skill.models';
@@ -19,7 +19,8 @@ export class JobEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private jobservice: Jobservice,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +66,7 @@ export class JobEditComponent implements OnInit {
         error: (err) => (this.error = err),
       });
     }
+    this.router.navigate(['job']);
   }
 
   displayJob(job: Job): void {
