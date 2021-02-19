@@ -34,8 +34,8 @@ export class CandidateService {
     });
   }
 
-  createCandidateJob(candidateJob: CandidateJob): Observable<Candidate> {
-    return this.http.post<Candidate>(this.candidateJobUrl, candidateJob, {
+  createCandidateJob(candidateJob: CandidateJob): Observable<CandidateJob> {
+    return this.http.post<CandidateJob>(this.candidateJobUrl, candidateJob, {
       headers: this.headers,
     });
   }

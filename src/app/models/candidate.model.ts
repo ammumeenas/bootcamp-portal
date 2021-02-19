@@ -7,5 +7,5 @@ export interface Candidate {
   fName: string;
   lName: string;
   skills: Array<Skill>;
-  candidateJobs: Array<Job>;
+  jobs: Array<Job>;
 }

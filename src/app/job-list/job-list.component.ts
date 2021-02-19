@@ -18,8 +18,8 @@ export class JobListComponent implements OnInit {
   jobs: Job[] = [];
   isAdmin: boolean = false;
   candidate!: Candidate;
-  candidateJob!: CandidateJob;
-  selectedJobsForCandidates: Array<Job> = [];
+  selectedJobsIdForCandidates: Array<number> = [];
+
   constructor(
     private jobService: Jobservice,
     public userService: UserService,
@@ -29,12 +29,12 @@ export class JobListComponent implements OnInit {
   ngOnInit(): void {
     this.jobService.getJobs().subscribe((jobs) => (this.jobs = jobs));
     this.candidateService.getCandidate().subscribe((candidate) => {
-      this.candidate = candidate;
-    candidate.candidateJobs.forEach((job) => {
-this.selectedJobsForCandidates.push(job)
-      }))
-      
+      (this.candidate = candidate),
+        candidate.jobs.forEach((job) => {
+          this.selectedJobsIdForCandidates.push(job.id);
+        });
     });
+
     // this.candidate.candidateJobs.forEach((job) => {
     //   if (this.jobs.includes(job)) {
     //     this.IsJobApplied = 'Applied';
@@ -52,13 +52,14 @@ this.selectedJobsForCandidates.push(job)
       }
     });
   }
-
-  applyForThisJob(jobId: number) {
-    if (this.IsJobApplied === 'Apply') {
-      this.candidateJob.CandidateId = this.candidate.id;
-      this.candidateJob.JobId = jobId;
-
-      this.candidateService.createCandidateJob(this.candidateJob);
-    }
+  applyJob(jobId: number) {
+    const candidateJob: CandidateJob = {
+      jobId: jobId,
+      candidateId: this.candidate.id,
+    };
+    console.log('inside applied job');
+    this.candidateService.createCandidateJob(candidateJob).subscribe((cj) => {
+      this.selectedJobsIdForCandidates.push(cj.jobId);
+    });
   }
 }

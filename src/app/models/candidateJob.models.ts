@@ -1,4 +1,4 @@
 export interface CandidateJob {
-  JobId: number;
-  CandidateId: string;
+  jobId: number;
+  candidateId: string;
 }
