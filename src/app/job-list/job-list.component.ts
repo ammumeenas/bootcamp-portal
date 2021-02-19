@@ -50,6 +50,11 @@ export class JobListComponent implements OnInit {
   }
 
   applyJob(jobId: number) {
+    const isOk = confirm(`Do you want to apply for job id:${jobId}`);
+
+    if (!isOk) {
+      return;
+    }
     const candidateJob: CandidateJob = {
       jobId: jobId,
       candidateId: this.candidate.id,

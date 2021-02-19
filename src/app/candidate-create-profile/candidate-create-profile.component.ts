@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -22,7 +23,8 @@ export class CandidateCreateProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private jobservice: Jobservice,
     private auth: AuthService,
-    private candidateService: CandidateService
+    private candidateService: CandidateService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +57,7 @@ export class CandidateCreateProfileComponent implements OnInit {
   }
   saveOnComplete() {
     this.candidateForm.reset();
+    this.router.navigate(['job']);
   }
 
   onCheckboxSelected(event: any) {

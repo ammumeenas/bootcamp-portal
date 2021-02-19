@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Jobservice } from '../job-list/jobList.services';
 import { Candidate } from '../models/candidate.model';
 import { Skill } from '../models/skill.models';
@@ -23,7 +23,8 @@ export class CandidateEditFormComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private candidateService: CandidateService,
-    private jobService: Jobservice
+    private jobService: Jobservice,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,18 +51,16 @@ export class CandidateEditFormComponent implements OnInit {
   }
 
   saveCandidate(): void {
-    if (this.CandidateForm.dirty) {
-      if (this.CandidateForm.valid) {
-        const candidate = {
-          ...this.CandidateForm.value,
-          skills: this.selectedSkills,
-          id: this.candidate.id,
-        };
-        this.candidateService.updateCandidate(candidate).subscribe({
-          next: () => this.saveOnComplete(),
-          error: (err) => (this.error = err),
-        });
-      }
+    if (this.CandidateForm.valid) {
+      const candidate = {
+        ...this.CandidateForm.value,
+        skills: this.selectedSkills,
+        id: this.candidate.id,
+      };
+      this.candidateService.updateCandidate(candidate).subscribe({
+        next: () => this.saveOnComplete(),
+        error: (err) => (this.error = err),
+      });
     }
   }
 
@@ -77,6 +76,7 @@ export class CandidateEditFormComponent implements OnInit {
 
   saveOnComplete(): void {
     this.CandidateForm.reset();
+    this.router.navigate(['job']);
   }
 
   doesCandidateHaveSkill(skill: Skill) {

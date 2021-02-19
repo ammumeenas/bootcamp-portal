@@ -1,3 +1,4 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import {
   FormArray,
@@ -6,7 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { Jobservice } from '../job-list/jobList.services';
 import { Job } from '../models/job.models';
 import { Skill } from '../models/skill.models';
@@ -22,13 +23,13 @@ export class JobFormComponent implements OnInit {
   selectedSkills: Array<Number> = [];
   constructor(
     private formBuilder: FormBuilder,
-    private jobservice: Jobservice
+    private jobservice: Jobservice,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.jobForm = this.formBuilder.group({
       role: ['', Validators.required],
-      noOfOpenings: [null, Validators.required],
       yearsOfExperience: ['', Validators.required],
       location: ['', Validators.required],
       applicationStatus: ['', Validators.required],
@@ -53,6 +54,7 @@ export class JobFormComponent implements OnInit {
   }
   saveOnComplete() {
     this.jobForm.reset();
+    this.router.navigate(['job']);
   }
 
   onCheckboxSelected(event: any) {
