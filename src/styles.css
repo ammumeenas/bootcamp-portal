@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/* .bg {
+.bg {
   background: url(assets/images/job-search.jpg) no-repeat center center fixed;
 
   background-position: center;
@@ -10,4 +10,4 @@
   background-repeat: no-repeat;
   min-height: 100%;
   opacity: 1;
-} */
+}
