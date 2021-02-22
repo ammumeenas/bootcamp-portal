@@ -41,22 +41,36 @@
       </div>
     </nav>
 
-    <div *ngIf="userService.isAdmin === false && userService.isAuthenticated">
-      <a class="btn btn-primary" routerLink="/candidate">My Profile</a>
-
-      <a
-        *ngIf="candidateProfile"
-        class="btn btn-primary"
-        routerLink="/candidate/edit"
-        >Edit my profile</a
-      >
-      <a *ngIf="!candidateProfile" class="btn btn-primary" routerLink="profile"
-        >Create profile</a
-      >
-      <a class="btn btn-primary" routerLinkActive="active" routerLink="job"
-        >Job List</a
-      >
-    </div>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      *ngIf="userService.isAdmin === false && userService.isAuthenticated"
+    >
+      <div class="container-fluid nav-bar-color">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navigation-bar">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/candidate">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a
+              *ngIf="candidateProfile"
+              class="nav-link"
+              routerLink="/candidate/edit"
+              >Edit my profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a *ngIf="!candidateProfile" class="nav-link" routerLink="profile"
+              >Create profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="job"
+              >Job List</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <div><router-outlet></router-outlet></div>
   </div>
