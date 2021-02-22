@@ -11,11 +11,8 @@
   <tr *ngFor="let job of jobs">
     <td>{{ job.id }}</td>
     <td>{{ job.role }}</td>
-    <td>
-      <a
-        *ngIf="userService.isAdmin === true"
-        [routerLink]="['/job', job.id, 'view']"
-      >
+    <td *ngIf="userService.isAdmin === true">
+      <a [routerLink]="['/job', job.id, 'view']">
         {{ job.candidates.length }}</a
       >
     </td>
