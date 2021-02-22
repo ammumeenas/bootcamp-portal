@@ -12,6 +12,8 @@ export class UserService {
     return this._isAdmin;
   }
 
+  public isAuthenticated = false;
+
   constructor(public auth: AuthService) {
     const userSubscribtion = this.auth.user$.subscribe((user) => {
       console.log('user:', user);
@@ -21,5 +23,12 @@ export class UserService {
         userSubscribtion.unsubscribe();
       }
     });
+
+    const userisAuthSubscription = this.auth.isAuthenticated$.subscribe(
+      (isAuthenticated) => {
+        this.isAuthenticated = isAuthenticated;
+        userisAuthSubscription.unsubscribe();
+      }
+    );
   }
 }
