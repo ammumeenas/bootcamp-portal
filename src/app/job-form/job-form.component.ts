@@ -1,15 +1,8 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Jobservice } from '../job-list/jobList.services';
-import { Job } from '../models/job.models';
+import { Jobservice } from '../services/job-list.service';
 import { Skill } from '../models/skill.models';
 
 @Component({

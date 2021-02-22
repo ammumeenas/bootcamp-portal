@@ -6,7 +6,7 @@ import { Candidate } from '../models/candidate.model';
 import { Job } from '../models/job.models';
 import { Skill } from '../models/skill.models';
 import { CandidateService } from '../services/candidate.service';
-import { Jobservice } from './jobList.services';
+import { Jobservice } from '../services/job-list.service';
 import { CandidateJob } from '../models/candidateJob.models';
 
 @Component({

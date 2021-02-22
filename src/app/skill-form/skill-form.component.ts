@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Jobservice } from '../job-list/jobList.services';
 import { Skill } from '../models/skill.models';
+import { Jobservice } from '../services/job-list.service';
 
 @Component({
   selector: 'app-skill-form',

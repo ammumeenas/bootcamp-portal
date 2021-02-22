@@ -1,73 +1,58 @@
-<nav class="nav">
-  <div class="nav-item">
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <ul class="nav nav-pills">
-        <li>
+<div class="bg">
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-light"
+    *ngIf="userService.isAdmin === true || userService.isAdmin === false"
+  >
+    <div class="container-fluid nav-bar-color">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navigation-bar">
+        <li class="nav-item">
           <a
-            class="btn btn-primary"
+            class="nav-link"
+            style="color: mediumblue"
             routerLinkActive="active"
             routerLink="job"
             *ngIf="userService.isAdmin === true"
             >Job List</a
           >
         </li>
-        <li>
+
+        <li class="nav-item">
           <a
-            class="btn btn-primary"
+            class="nav-link"
+            style="color: mediumblue"
             routerLinkActive="active"
             routerLink="jobform"
             *ngIf="userService.isAdmin === true"
             >Create Job</a
           >
         </li>
-        <li></li>
       </ul>
+      <app-user-profile style="color: mediumblue"></app-user-profile>
 
-      <app-auth-button class="btn btn-primary"></app-auth-button>
+      <app-auth-button></app-auth-button>
+    </div>
+  </nav>
 
-      <app-user-profile></app-user-profile>
-    </nav>
+  <div class="container-fluid">
+    <h1 style="color: darkcyan">Welcome to Bootcamp Job Portal</h1>
+
+    <div *ngIf="userService.isAdmin === false">
+      <a class="btn btn-primary" routerLink="/candidate">My Profile</a>
+
+      <a
+        *ngIf="candidateProfile"
+        class="btn btn-primary"
+        routerLink="/candidate/edit"
+        >Edit my profile</a
+      >
+      <a *ngIf="!candidateProfile" class="btn btn-primary" routerLink="profile"
+        >Create profile</a
+      >
+      <a class="btn btn-primary" routerLinkActive="active" routerLink="job"
+        >Job List</a
+      >
+    </div>
+
+    <div><router-outlet></router-outlet></div>
   </div>
-</nav>
-
-<!-- <ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" routerLinkActive="active" routerLink="job"
-      >Job List</a
-    >
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" routerLink="jobform"
-      >Create Job</a
-    >
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" routerLink="skill">Skills</a>
-  </li>
-  <li class="nav-item">
-    <app-auth-button class="nav-link"></app-auth-button>
-  </li>
-
-  <app-user-profile></app-user-profile> -->
-
-<div class="jumbotron">
-  <h1>Welcome to Bootcamp Job Portal</h1>
 </div>
-<div *ngIf="userService.isAdmin === false">
-  <a class="btn btn-primary" routerLink="/candidate">My Profile</a>
-
-  <a
-    *ngIf="candidateProfile"
-    class="btn btn-primary"
-    routerLink="/candidate/edit"
-    >Edit my profile</a
-  >
-  <a *ngIf="!candidateProfile" class="btn btn-primary" routerLink="profile"
-    >Create profile</a
-  >
-  <a class="btn btn-primary" routerLinkActive="active" routerLink="job"
-    >Job List</a
-  >
-</div>
-
-<div><router-outlet></router-outlet></div>

@@ -5,6 +5,7 @@ import { InterceptorService } from './Auth/interceptor.service';
 import { CandidateCreateProfileComponent } from './candidate-create-profile/candidate-create-profile.component';
 import { CandidateEditFormComponent } from './candidate-Editform/candidate-Editform.component';
 import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
+import { CandidateViewComponent } from './candidate-view/candidate-view.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { JobEditComponent } from './job-edit/job-edit.component';
 import { JobFormComponent } from './job-form/job-form.component';
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: CandidateCreateProfileComponent,
+  },
+  {
+    path: 'job/:id/view',
+    component: CandidateViewComponent,
   },
 ];
 

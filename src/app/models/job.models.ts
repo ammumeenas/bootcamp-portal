@@ -12,5 +12,5 @@ export interface Job {
   noOfApplicants: number;
   isActive: string;
   company: string;
-  candidates: Array<Candidate>;
+  candidates?: Array<Candidate>;
 }

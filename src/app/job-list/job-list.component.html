@@ -11,8 +11,13 @@
   <tr *ngFor="let job of jobs">
     <td>{{ job.id }}</td>
     <td>{{ job.role }}</td>
-    <td *ngIf="userService.isAdmin === true">
-      {{ job.candidates.length }}
+    <td>
+      <a
+        *ngIf="userService.isAdmin === true"
+        [routerLink]="['/job', job.id, 'view']"
+      >
+        {{ job.candidates.length }}</a
+      >
     </td>
     <td>
       {{ job.isActive }}
@@ -38,7 +43,7 @@
     <td>
       <button
         *ngIf="userService.isAdmin === true"
-        class="btn btn-outline-primary btn-sm"
+        class="btn btn-outline-primary btn-sm delete-button"
         (click)="deleteJob(job.id)"
       >
         Delete

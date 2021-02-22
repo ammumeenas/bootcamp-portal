@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Jobservice } from '../job-list/jobList.services';
+import { Jobservice } from '../services/job-list.service';
 import { Skill } from '../models/skill.models';
 import { CandidateService } from '../services/candidate.service';
 

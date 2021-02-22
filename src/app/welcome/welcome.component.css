@@ -1,1 +1,24 @@
+.navigation-bar {
+  margin-right: auto;
+}
 
+.nav-bar-color {
+  background-color: paleturquoise;
+  padding: inherit;
+}
+
+.text-color {
+  color: mediumblue;
+}
+
+.bg {
+  background: url(../../assets/images/job-search.jpg);
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  opacity: 1;
+}

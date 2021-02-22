@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Jobservice } from '../job-list/jobList.services';
 import { Skill } from '../models/skill.models';
+import { Jobservice } from '../services/job-list.service';
 import { SkillFormComponent } from '../skill-form/skill-form.component';
 
 @Component({
@@ -36,7 +36,6 @@ export class SkillEditComponent implements OnInit {
   getSkill(id: number): void {
     this.jobservice.getSkill(id).subscribe({
       next: (skill: Skill) => this.displaySkill(skill),
-      error: (err) => (this.error = err),
     });
   }
 
@@ -46,7 +45,6 @@ export class SkillEditComponent implements OnInit {
         const p = { ...this.skill, ...this.skillForm.value };
         this.jobservice.updateSkill(p).subscribe({
           next: () => this.saveOnComplete(),
-          error: (err) => (this.error = err),
         });
       }
     }

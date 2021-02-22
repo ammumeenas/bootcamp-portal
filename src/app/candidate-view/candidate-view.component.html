@@ -1,1 +1,18 @@
-<p>candidate-view works!</p>
+<table class="table table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Experience</th>
+  </tr>
+  <tr *ngFor="let candidate of job.candidates">
+    <td>
+      {{ candidate.fName }}
+    </td>
+    <td>
+      {{ candidate.lName }}
+    </td>
+    <td>
+      {{ candidate.experience }}
+    </td>
+  </tr>
+</table>

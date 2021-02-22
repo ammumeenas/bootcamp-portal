@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Jobservice } from '../job-list/jobList.services';
+import { Jobservice } from '../services/job-list.service';
 import { Job } from '../models/job.models';
 
 @Component({

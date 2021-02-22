@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Job } from '../models/job.models';
 import { Observable } from 'rxjs';
-import { CATCH_ERROR_VAR } from '@angular/compiler/src/output/output_ast';
 import { Skill } from '../models/skill.models';
 
 @Injectable({
