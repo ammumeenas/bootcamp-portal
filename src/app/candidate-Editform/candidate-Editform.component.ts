@@ -84,7 +84,7 @@ export class CandidateEditFormComponent implements OnInit {
   }
 
   onCheckboxSelected(event: any) {
-    if (event.target.value.checked) {
+    if (event.target.checked) {
       this.selectedSkills.push(+event.target.value);
     } else {
       const index = this.selectedSkills.indexOf(+event.target.value);
