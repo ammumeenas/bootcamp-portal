@@ -1,83 +1,97 @@
 <div class="card-body">
   <form (ngSubmit)="saveProfile()" [formGroup]="candidateForm">
-    <label class="col-md-2 col-form -label">Id</label>
-    <div class="col=md-8">
-      <input
-        readonly
-        class="form-control"
-        type="text"
-        [value]="userId"
-        formControlName="Id"
-      />
-    </div>
-    <label class="col-md-2 col-form -label" for="">First Name</label>
-    <div class="col=md-8">
-      <input
-        class="form-control"
-        id="fNameId"
-        type="text"
-        placeholder="First Name"
-        formControlName="FName"
-      />
-    </div>
-    <div>
-      <span *ngIf="candidateForm.get('FName')?.errors?.required"
-        >Please enter valid first name</span
-      >
-    </div>
-
-    <label class="col-md-2 col-form -label" for="">Last Name</label>
-    <div class="col=md-8">
-      <input
-        class="form-control"
-        id="lNameId"
-        type="text"
-        placeholder="Last Name"
-        formControlName="LName"
-      />
-    </div>
-    <div>
-      <span *ngIf="candidateForm.get('LName')?.errors?.required"
-        >Please enter valid Last name</span
-      >
-    </div>
-
-    <label class="col-md-2 col-form -label" for="">Experience</label>
-    <div class="col=md-8">
-      <input
-        class="form-control"
-        id="Experience"
-        type="text"
-        placeholder="Experience"
-        formControlName="Experience"
-      />
-    </div>
-    <div>
-      <span *ngIf="candidateForm.get('Experience')?.errors?.required"
-        >Please enter valid experience</span
-      >
-    </div>
-
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="skillId"
-        >Please select a skill</label
-      >
-      <div class="col=md-8" *ngFor="let skill of skills">
-        <label [for]="skill.id">{{ skill.name }}</label>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Id</label>
+      <div class="col-sm-4">
         <input
-          type="checkbox"
-          (change)="onCheckboxSelected($event)"
-          [id]="skill.id"
-          [value]="skill.id"
+          readonly
+          class="form-control"
+          type="text"
+          [value]="userId"
+          formControlName="Id"
         />
       </div>
-      <span
-        *ngIf="
-          candidateForm.get('skills')?.errors?.required &&
-          !candidateForm.get('skills')?.pristine
-        "
-        >Choose atleast one skill</span
-      >
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="">First Name</label>
+      <div class="col-sm-4">
+        <input
+          class="form-control"
+          id="fNameId"
+          type="text"
+          placeholder="First Name"
+          formControlName="FName"
+        />
+      </div>
+      <div>
+        <small
+          class="form-text text-muted"
+          *ngIf="candidateForm.get('FName')?.errors?.required"
+          >Please enter valid first name</small
+        >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="">Last Name</label>
+      <div class="col-sm-4">
+        <input
+          class="form-control"
+          id="lNameId"
+          type="text"
+          placeholder="Last Name"
+          formControlName="LName"
+        />
+      </div>
+      <div>
+        <small
+          class="form-text text-muted"
+          *ngIf="candidateForm.get('LName')?.errors?.required"
+          >Please enter valid Last name</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="">Experience</label>
+      <div class="col-sm-4">
+        <input
+          class="form-control"
+          id="Experience"
+          type="text"
+          placeholder="Experience"
+          formControlName="Experience"
+        />
+      </div>
+      <div>
+        <small
+          class="form-text text-muted"
+          *ngIf="candidateForm.get('Experience')?.errors?.required"
+          >Please enter valid experience</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2">Skills</div>
+      <div class="col-sm-4">
+        <div class="form-check" *ngFor="let skill of skills">
+          <input
+            type="checkbox"
+            (change)="onCheckboxSelected($event)"
+            [id]="skill.id"
+            [value]="skill.id"
+          />
+          <label [for]="skill.id">{{ skill.name }}</label>
+        </div>
+        <small
+          class="form-text text-muted"
+          *ngIf="
+            candidateForm.get('skills')?.errors?.required &&
+            !candidateForm.get('skills')?.pristine
+          "
+          >Choose atleast one skill</small
+        >
+      </div>
     </div>
 
     <button type="submit" [disabled]="!candidateForm.valid">Save</button>
