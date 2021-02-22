@@ -1,48 +1,57 @@
 <div class="card-body">
   <form (ngSubmit)="saveJob()" [formGroup]="jobForm">
-    <label class="col-md-2 col-form -label" for="roleId">Role</label>
-    <div class="col=md-8">
-      <input
-        class="form-control"
-        id="roleId"
-        type="text"
-        placeholder="Role"
-        formControlName="role"
-      />
-    </div>
-    <div>
-      <span *ngIf="jobForm.get('role')?.errors?.required"
-        >Please enter valid role</span
-      >
-    </div>
-
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="skillId"
-        >Please select a skill</label
-      >
-      <div class="col=md-8" *ngFor="let skill of skills">
-        <label [for]="skill.id">{{ skill.name }}</label>
+    <div class="form-group row">
+      <label for="roleId" class="col-sm-2 col-form-label">Role</label>
+      <div class="col-sm-4">
         <input
-          type="checkbox"
-          (change)="onCheckboxSelected($event)"
-          [id]="skill.id"
-          [value]="skill.id"
+          class="form-control"
+          id="roleId"
+          type="text"
+          placeholder="Role"
+          formControlName="role"
         />
       </div>
-      <span
+
+      <div>
+        <small
+          *ngIf="jobForm.get('role')?.errors?.required"
+          class="form-text text-muted"
+          >Please enter valid role</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2">Skills</div>
+      <div class="col-sm-4">
+        <div class="form-check" *ngFor="let skill of skills">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            (change)="onCheckboxSelected($event)"
+            [id]="skill.id"
+            [value]="skill.id"
+          />
+          <label [for]="skill.id" class="form-check-label">{{
+            skill.name
+          }}</label>
+        </div>
+      </div>
+      <small
+        class="form-text text-muted"
         *ngIf="
           jobForm.get('skills')?.errors?.required &&
           !jobForm.get('skills')?.pristine
         "
-        >Choose atleast one skill</span
+        >Choose atleast one skill</small
       >
     </div>
 
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="experienceId"
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="experienceId"
         >Years of Experience</label
       >
-      <div class="col=md-8">
+      <div class="col-sm-4">
         <input
           class="form-control"
           id="experienceId"
@@ -50,16 +59,16 @@
           formControlName="yearsOfExperience"
         />
       </div>
-      <span *ngIf="jobForm.get('yearsOfExperience')?.errors?.required"
-        >Please enter valid experience</span
+      <small
+        class="form-text text-muted"
+        *ngIf="jobForm.get('yearsOfExperience')?.errors?.required"
+        >Please enter valid experience</small
       >
     </div>
 
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="location"
-        >Job location</label
-      >
-      <div class="col=md-8">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="location">Job location</label>
+      <div class="col-sm-4">
         <input
           class="form-control"
           id="location"
@@ -67,15 +76,17 @@
           formControlName="location"
         />
       </div>
-      <span *ngIf="jobForm.get('location')?.errors?.required"
-        >Please enter valid loocation</span
+      <small
+        class="form-text text-muted"
+        *ngIf="jobForm.get('location')?.errors?.required"
+        >Please enter valid loocation</small
       >
     </div>
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="statusId"
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="statusId"
         >Status of Application</label
       >
-      <div class="col=md-8">
+      <div class="col-sm-4">
         <input
           class="form-control"
           id="statusId"
@@ -84,15 +95,17 @@
         />
       </div>
       <div>
-        <span *ngIf="jobForm.get('applicationStatus')?.errors?.required"
-          >Please enter valid application status</span
+        <small
+          class="form-text text-muted"
+          *ngIf="jobForm.get('applicationStatus')?.errors?.required"
+          >Please enter valid application status</small
         >
       </div>
     </div>
 
-    <div class="form-group row mb-2">
-      <label class="col-md-2 col-form -label" for="companyId">Company</label>
-      <div class="col=md-8">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="companyId">Company</label>
+      <div class="col-sm-4">
         <input
           class="form-control"
           id="companyId"
@@ -100,8 +113,10 @@
           formControlName="company"
         />
       </div>
-      <span *ngIf="jobForm.get('company')?.errors?.required"
-        >Please enter valid company name</span
+      <small
+        class="form-text text-muted"
+        *ngIf="jobForm.get('company')?.errors?.required"
+        >Please enter valid company name</small
       >
     </div>
 
